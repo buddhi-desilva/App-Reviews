@@ -1,0 +1,92 @@
+#toplevel_page_app_reviews div.wp-menu-image {
+	background:url(../images/appstore_icon.png) no-repeat center;
+}
+
+#toplevel_page_app_reviews div.wp-menu-image a img {
+	display:none;
+}
+
+div.results {
+	border-top:1px solid #CCCCCC;
+	overflow:hidden;
+	width:100%;
+}
+
+div.app_view {
+	overflow:hidden;
+	padding:1px 5px;
+	margin-bottom:10px;
+	border:1px solid #DDDDDD;
+	width:230px;
+	float:left;
+	background:#EFEFEF url(../images/app_view_gradient.png) repeat-x top;
+	
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-khtml-border-radius: 8px;
+	
+	-moz-box-shadow: 1px 2px 1px 1px #f8f7e7;
+  -webkit-box-shadow: 2px 1px 1px 1px #f8f7e7;
+  box-shadow: 1px 2px 1px 1px #f8f7e7;
+}
+
+div.app_view:hover {background:#FFFFFF}
+
+div.app_view div.app_title {
+	border:none;
+	border-bottom:1px dashed #DDDDDD;
+	overflow:hidden;
+}
+
+div.app_view h3 {
+	font-size:1.2em;
+	padding:0;
+	margin:0.5em 0;
+	font-weight:bold;
+} 
+
+div.app_view h3 span.app_price {
+	font-weight:normal;
+	color:#AAAAAA;
+	white-space:nowrap;
+}
+
+div.app_view .genre {
+	width:100%;
+	padding:5px 0;
+	border-top:1px dashed #CCCCCC;
+}
+
+div.app_view .ratings {
+	color:#880000;
+	font-weight:bold;
+	padding-bottom:3px;
+	overflow:hidden;
+	clear:right;
+}
+
+.button_area {
+	display:block;
+	padding:0px 10px 5px 0px;
+	width:60px;
+	float:left;
+}
+
+.button_area img {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-khtml-border-radius: 10px;
+	width:60px;
+	height:60px;
+	margin-bottom:5px;
+	float:left;
+}
+
+.button_area button {
+	display:block;
+	border:1px solid #333333;
+	min-width:40px;
+	float:left;
+}
