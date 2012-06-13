@@ -13,7 +13,7 @@ function appstoreSearch($search_url) { ?>
 	$json_result = kill3rMedia_get_remote_file($search_url);
 	$search_result = json_decode($json_result);
 	foreach ($search_result->results as $result) { ?>
-		<div class="app_view">
+		<div class="app_view <?php if (count($search_result->results) == 1) {echo 'single_item';} ?>">
 			<div class="app_title">
 				<h3>
 					<?php echo $result->trackName ?>
@@ -107,9 +107,9 @@ function newAppPost($lookup_url) { ?>
 			}
 		}
 		
-		if ($result->screenshotUrls) {
+		if (($app_screenshots = $result->screenshotUrls) || ($app_screenshots = $result->ipadScreenshotUrls) || ($app_screenshots = $result->iphoneScreenshotUrls)) {
 			$gallery_ids = array();
-			foreach($result->screenshotUrls as $screenshotURL) {
+			foreach($app_screenshots as $screenshotURL) {
 				$gallery_image_id = insert_image_from_url($screenshotURL, $post_id);
 			}	
 		}
@@ -117,7 +117,9 @@ function newAppPost($lookup_url) { ?>
 		//insert gallery into content
 		$post_content = '<img src="'. wp_get_attachment_thumb_url($featured_image_id) .'" alt="'. $result->trackName .'" class="post_thumb" />';
 		$post_content .= $result->description;
-		$post_content .= '<hr/>[gallery size="medium" exclude="'. $featured_image_id .'"]';
+		if ($app_screenshots) {
+			$post_content .= '<hr/>[gallery size="large" exclude="'. $featured_image_id .'"]';
+		}
 		$post_update = array(
 			'post_content' => $post_content,
 			'ID' => $post_id);

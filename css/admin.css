@@ -31,6 +31,10 @@ div.app_view {
   box-shadow: 1px 2px 1px 1px #f8f7e7;
 }
 
+div.single_item {
+	width:auto !important;
+}
+
 div.app_view:hover {background:#FFFFFF}
 
 div.app_view div.app_title {

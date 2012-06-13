@@ -4,10 +4,10 @@ function appstore_search_callback() {
 
 	if (!empty($_POST)) {		
 	
-		// if (!empty($_POST['appstore_id'])) {
-		// 	appstoreSearch(lookup_by_id_url($_POST['appstore_id']));
-		// }
-		if (!empty($_POST['appstore_keywords'])) {
+		if (!empty($_POST['appstore_id'])) {
+			appstoreSearch(lookup_by_id_url($_POST['appstore_id']));
+		}
+		else if (!empty($_POST['appstore_keywords'])) {
 			appstoreSearch(search_by_term_url($_POST['appstore_keywords']));
 		}
 		else {
