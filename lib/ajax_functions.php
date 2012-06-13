@@ -8,7 +8,7 @@ function appstore_search_callback() {
 			appstoreSearch(lookup_by_id_url($_POST['appstore_id']));
 		}
 		else if (!empty($_POST['appstore_keywords'])) {
-			appstoreSearch(search_by_term_url($_POST['appstore_keywords']));
+			appstoreSearch(search_by_term_url($_POST['appstore_keywords']), $_POST['free_apps_only']);
 		}
 		else {
 			?>

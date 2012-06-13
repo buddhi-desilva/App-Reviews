@@ -1,3 +1,5 @@
+#icon-options-app-reviews {background:url(../images/appstore_icon_32x32.png) center no-repeat}
+
 #toplevel_page_app_reviews div.wp-menu-image {
 	background:url(../images/appstore_icon.png) no-repeat center;
 }
@@ -6,8 +8,15 @@
 	display:none;
 }
 
+#appstore_search_form_table th {width:auto}
+#appstore_search_form_table td {width:auto}
+#appstore_search_form_table td.submit_button {width:10%}
+
+
+
 div.results {
 	border-top:1px solid #CCCCCC;
+	margin-top:5px;
 	overflow:hidden;
 	width:100%;
 }

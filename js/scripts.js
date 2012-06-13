@@ -18,10 +18,12 @@ function searchAppstore() {
 		
 		appstore_keywords = jQuery('#search_appstore_keywords').val();
 		appstore_id = jQuery('#search_appstore_id').val();
+		free_apps_only = jQuery('#search_free_apps_only').is(':checked');
 		var data = {
 			action: 'appstore_search',
 			appstore_id: appstore_id,
-			appstore_keywords: appstore_keywords
+			appstore_keywords: appstore_keywords,
+			free_apps_only: free_apps_only
 		};
 
 		jQuery.post(ajaxurl, data, function(response) {
