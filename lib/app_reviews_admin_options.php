@@ -35,8 +35,9 @@
 		</td>
 
 		<td valign="top" class="submit_button">
+			<span>
 				<input type="submit" value="Search appstore" class="button-primary widget-control-save" id="appstore_search_button" name="savewidget">
-				<img alt="" title="" class="ajax-feedback" src="<?php echo home_url( '/' ); ?>/wp-admin/images/wpspin_light.gif">
+			</span>
 		</td>
 	</tr>
 	</tbody></table>

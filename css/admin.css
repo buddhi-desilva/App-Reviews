@@ -13,6 +13,10 @@
 #appstore_search_form_table td.submit_button {width:10%}
 
 
+#apps_list h2 {
+	font-weight:bold;
+	margin-bottom:10px;
+}
 
 div.results {
 	border-top:1px solid #CCCCCC;
@@ -121,6 +125,13 @@ div.disabled {
 }
 
 .ajax_spinner_title {
-	background:url(../images/wpspin_light.gif) top left no-repeat;
+	background:url(../images/wpspin_light.gif) center left no-repeat;
 	padding-left:20px !important;
+}
+
+.ajax_spinner_search_button {
+	background:url(../images/wpspin_light.gif) center left no-repeat;
+	padding-left:20px !important;
+	padding-top:5px;
+	padding-bottom:5px;
 }

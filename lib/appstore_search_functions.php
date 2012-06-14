@@ -15,7 +15,7 @@
 		});
 	</script>
 	
-	<h2>Apple Appstore search results</h2>
+	<h2>iTunes Store search results</h2>
 	<div id="app_display_container">
 	<?php
 	$json_result = kill3rMedia_get_remote_file($search_url);

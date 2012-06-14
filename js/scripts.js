@@ -6,7 +6,6 @@ function appAddRequest() {
 		jQuery(this).parent().parent().each(function(index){
 			jQuery(this).removeClass("disabled");
 			jQuery(this).find("h3:first").addClass('ajax_spinner_title');
-			
 		});
 				
 		//Ajax stuff
@@ -19,9 +18,11 @@ function appAddRequest() {
 			}).success(function(response) {
 				window.location.replace(response);
 			})
-			.error(function() { 
+			.error(function() {
 				alert('Error.. Please try again!');
 				jQuery('.app_link_button').removeAttr('disabled');
+				jQuery('.app_view').removeClass("disabled");
+				jQuery("h3.ajax_spinner_title").removeClass('ajax_spinner_title');
 			});
 			
 		return false;
@@ -31,6 +32,7 @@ function appAddRequest() {
 
 function searchAppstore() {
 	jQuery("#appstore_search_form").submit(function() {
+		jQuery('#appstore_search_button').parent().addClass('ajax_spinner_search_button');
 		
 		appstore_keywords = jQuery('#search_appstore_keywords').val();
 		appstore_id = jQuery('#search_appstore_id').val();
@@ -45,6 +47,7 @@ function searchAppstore() {
 		jQuery.post(ajaxurl, data, function(response) {
 			
 		}).success(function(response) {
+					jQuery('#appstore_search_button').parent().removeClass('ajax_spinner_search_button');
 					jQuery('#apps_list').html(response);
 				})
 			.error(function() { 
