@@ -103,3 +103,24 @@ div.app_view .ratings {
 	min-width:40px;
 	float:left;
 }
+
+
+.button_area button:disabled
+{
+    background: none repeat scroll 0 0 #CCCCCC !important;
+    color: #EEEEEE !important;
+		border:1px solid #BBBBBB;
+}
+
+div.disabled {
+	background:#DDDDDD !important;
+}
+
+.ajax_spinner {
+	background:url(../images/wpspin_light.gif) top left no-repeat;
+}
+
+.ajax_spinner_title {
+	background:url(../images/wpspin_light.gif) top left no-repeat;
+	padding-left:20px !important;
+}
