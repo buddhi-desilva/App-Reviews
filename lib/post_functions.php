@@ -6,7 +6,7 @@ function newAppPost($lookup_url) { ?>
 	$search_result = json_decode($json_result);
 	foreach ($search_result->results as $result) {
 		//Mark category based on primary Genre. Or create one if the category does not exist
-		$post_main_category = app_category();
+		$post_main_category = find_parent_cat();
 		$post_sub_category = app_category($result->primaryGenreName, $post_main_category);
 		 
 		$post = array(
@@ -28,9 +28,15 @@ function newAppPost($lookup_url) { ?>
 
 		if ($result->price == 0.00) { // Create free or paid tags
 			array_push($tags, "Free");
+
+			//Add price as a custom field
+			add_post_meta($post_id, 'Price', 'Free', true);
 		}
 		else {
 			array_push($tags, "Paid");
+
+			//Add price as a custom field
+			add_post_meta($post_id, 'Price', $result->currency . $result->price, true);
 		}
 		
 		wp_set_post_tags($post_id, $tags, false); // Set post tags
@@ -55,6 +61,7 @@ function newAppPost($lookup_url) { ?>
 		$post_content = '<img src="'. wp_get_attachment_thumb_url($featured_image_id) .'" alt="'. $result->trackName .'" class="post_thumb" />';
 		$post_content .= $result->description;
 		if ($app_screenshots) {
+			$post_content .= '<!--more-->';
 			$post_content .= '<hr/>[gallery size="large" exclude="'. $featured_image_id .'"]';
 		}
 		$post_update = array(
@@ -63,8 +70,8 @@ function newAppPost($lookup_url) { ?>
 		wp_update_post($post_update);
 		
 		
-		//Add itunes store url as a custom field for future use
-		add_post_meta($post_id, 'itunes_store_link', $result->trackViewUrl, true);		
+		//Add itunes store url as a custom field
+		add_post_meta($post_id, 'itunes_store_link', $result->trackViewUrl, true);
 
 		//sending the redirect url for editing the draft before publishing
 		echo 'post.php?post='. $post_id .'&action=edit';
@@ -140,21 +147,59 @@ function kill3r_fopen_fetch_image($url) {
 
 //Create app categories or returns cateogry id based on category name
 // if nothing's passed the main cateogry will be created and/or returned
-function app_category($cat_name = NULL, $parent_cat_id = NULL	) {
-	if ($cat_name == NULL) {
-		$cat_name = 'iOS Software';
-	}
+function app_category($cat_name = NULL, $parent_cat_id) {
 	if (get_cat_ID($cat_name ) == 0) {
-		if ($parent_cat_id == NULL) {
-			return wp_create_category($cat_name);
-		}
-		else {
-			return wp_create_category($cat_name, $parent_cat_id);
-		}
+		return wp_create_category($cat_name, $parent_cat_id);
 	}
 	else {
 		return get_cat_ID($cat_name);
 	}
+}
+
+// function app_category($cat_name = NULL, $parent_cat_id = NULL	) {
+// 	if ($cat_name == NULL) {
+// 		$cat_name = 'iOS Software';
+// 	}
+// 	if (get_cat_ID($cat_name ) == 0) {
+// 		if ($parent_cat_id == NULL) {
+// 			return wp_create_category($cat_name);
+// 		}
+// 		else {
+// 			return wp_create_category($cat_name, $parent_cat_id);
+// 		}
+// 	}
+// 	else {
+// 		return get_cat_ID($cat_name);
+// 	}
+// }
+
+function find_parent_cat() {
+  // Set the required categories
+  $main_cat = 'Resources';
+  $apps_cat = 'Apps';  
+
+  if (get_cat_ID($main_cat) == 0) {
+    $main_cat_id = wp_create_category($main_cat);
+  }
+
+  if (get_cat_ID($apps_cat) == 0) {
+    $apps_cat_id = wp_create_category($apps_cat);
+  }
+
+  $main_cat_id = get_cat_ID($main_cat);
+  $apps_cat_id = get_cat_ID($apps_cat);
+
+
+  //Check if the Apps category is under resources and if not, moves it under resources
+  $categories = get_categories(array('include' => $apps_cat_id, 'exclude' => $main_cat_id, 'hide_empty' => 0 ));
+  foreach($categories as $category) {
+    if (!$category->category_parent || !($category->category_parent == $main_cat_id)) {
+      wp_update_term($category->term_id, 'category', array('parent' => $main_cat_id));
+    }
+  }
+  
+
+  return $apps_cat_id;
 }
 
 

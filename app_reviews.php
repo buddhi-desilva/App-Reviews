@@ -28,4 +28,16 @@ require_once('lib/appstore_search_functions.php');
 require_once('lib/ajax_functions.php');
 require_once('lib/post_functions.php');
 
+// require_once(ABSPATH . 'wp-admin/includes/taxonomy.php');
+
+
+// Create the necessary taxonomies
+add_action( 'init', 'build_taxonomies', 10 );
+
+function build_taxonomies() {
+  register_taxonomy( 'subject', 'post', array( 'hierarchical' => true, 'label' => 'Subject', 'query_var' => true, 'rewrite' => true ) );
+  register_taxonomy( 'levels', 'post', array( 'hierarchical' => true, 'label' => 'Levels', 'query_var' => true, 'rewrite' => true ) );
+  register_taxonomy( 'price', 'post', array( 'hierarchical' => true, 'label' => 'Price', 'query_var' => true, 'rewrite' => true ) );
+}
+
 ?>
