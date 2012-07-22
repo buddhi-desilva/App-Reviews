@@ -24,7 +24,7 @@ TODO: (Proof of concept stage)
 define("PLUGIN_BASE_DIRECTORY", basename(dirname(__FILE__)));
 
 require_once('app_reviews_admin.php');
-require_once('lib/appstore_search_functions.php');
+require_once('lib/appstore_search.php');
 require_once('lib/ajax_functions.php');
 require_once('lib/post_functions.php');
 

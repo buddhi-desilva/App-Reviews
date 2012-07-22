@@ -1,7 +1,7 @@
 <?php
-function newAppPost($lookup_url) { ?>
-	
-	<?php
+function newAppPost($lookup_url) {
+	require_once('get_remote_file.php');
+
 	$json_result = kill3rMedia_get_remote_file($lookup_url);
 	$search_result = json_decode($json_result);
 	foreach ($search_result->results as $result) {
