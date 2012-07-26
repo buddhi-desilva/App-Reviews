@@ -28,7 +28,14 @@ require_once('lib/appstore_search.php');
 require_once('lib/ajax_functions.php');
 require_once('lib/post_functions.php');
 
-// require_once(ABSPATH . 'wp-admin/includes/taxonomy.php');
+
+// Register apps post format
+add_action( 'init', 'new_post_type' );
+
+function new_post_type() {
+  add_post_type_support( 'app', 'post-formats' );
+}
+
 
 
 // Create the necessary taxonomies

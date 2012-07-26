@@ -156,27 +156,10 @@ function app_category($cat_name = NULL, $parent_cat_id) {
 	}
 }
 
-// function app_category($cat_name = NULL, $parent_cat_id = NULL	) {
-// 	if ($cat_name == NULL) {
-// 		$cat_name = 'iOS Software';
-// 	}
-// 	if (get_cat_ID($cat_name ) == 0) {
-// 		if ($parent_cat_id == NULL) {
-// 			return wp_create_category($cat_name);
-// 		}
-// 		else {
-// 			return wp_create_category($cat_name, $parent_cat_id);
-// 		}
-// 	}
-// 	else {
-// 		return get_cat_ID($cat_name);
-// 	}
-// }
-
 function find_parent_cat() {
   // Set the required categories
   $main_cat = 'Resources';
-  $apps_cat = 'Apps';  
+  $apps_cat = 'Education apps';  
 
   if (get_cat_ID($main_cat) == 0) {
     $main_cat_id = wp_create_category($main_cat);
