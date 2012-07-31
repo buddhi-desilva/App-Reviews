@@ -10,7 +10,7 @@ function newAppPost($lookup_url) {
 		$post_sub_category = app_category($result->primaryGenreName, $post_main_category);
 		 
 		$post = array(
-			'post_type' => 'post',
+			'post_type' => 'ipad-app',
 			'post_status' => 'draft',
 			'post_title' => $result->trackName,
 			'post_category' => array($post_main_category, $post_sub_category)
@@ -31,6 +31,7 @@ function newAppPost($lookup_url) {
 
 			//Add price as a custom field
 			add_post_meta($post_id, 'Price', 'Free', true);
+
 		}
 		else {
 			array_push($tags, "Paid");
@@ -38,10 +39,38 @@ function newAppPost($lookup_url) {
 			//Add price as a custom field
 			add_post_meta($post_id, 'Price', $result->currency . $result->price, true);
 		}
-		
+
 		wp_set_post_tags($post_id, $tags, false); // Set post tags
+
+
+
+		//Create taxon terms based on price tags
+		$price_range = array(
+			'Free' => 0.00,
+			'0.1-0.99' => 0.99,
+			'2-5' => 5,
+			'5-10' => 10,
+			'10-20' => 20,
+			'20-50' => 50,
+			'50-100' => 100,
+			'100-500' => 500,
+			'500-1000' => 1000
+			);
+
+		$price_name = '1000-or-more';
+
+		foreach ($price_range as $slug => $value) {
+			if ($result->price <= $value) {
+				$price_name = $slug;
+				break;
+			}
+		}
+
+		wp_set_object_terms($post_id, $price_name, 'price', false);
 		
 		
+
+
 		//Attachement inserting code goes here
 		if ($result->artworkUrl60) {
 			$featured_image_id = insert_image_from_url($result->artworkUrl60, $post_id);

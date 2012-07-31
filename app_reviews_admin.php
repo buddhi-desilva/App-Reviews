@@ -28,5 +28,4 @@ function app_reviews_admin_options() {
 add_action('wp_ajax_appstore_search', 'appstore_search_callback');
 add_action('wp_ajax_new_app_post', 'new_app_post_callback');
 
-
 ?>

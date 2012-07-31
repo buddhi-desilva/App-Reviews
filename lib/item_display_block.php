@@ -9,6 +9,7 @@
         }
         else {
           echo '(Price: ' . $result->currency . $result->price . ')';
+          
         } ?>
       </span>
     </h3>

@@ -60,5 +60,4 @@ function lookup_by_id_url($app_id) {
 	return $lookup_url;
 }
 
-
 ?>
