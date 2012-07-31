@@ -5,15 +5,16 @@ function newAppPost($lookup_url) {
 	$json_result = kill3rMedia_get_remote_file($lookup_url);
 	$search_result = json_decode($json_result);
 	foreach ($search_result->results as $result) {
+
 		//Mark category based on primary Genre. Or create one if the category does not exist
-		$post_main_category = find_parent_cat();
-		$post_sub_category = app_category($result->primaryGenreName, $post_main_category);
+		// $post_main_category = find_parent_cat();
+		// $post_sub_category = app_category($result->primaryGenreName, $post_main_category);
 		 
 		$post = array(
 			'post_type' => 'ipad-app',
 			'post_status' => 'draft',
 			'post_title' => $result->trackName,
-			'post_category' => array($post_main_category, $post_sub_category)
+			// 'post_category' => array($post_main_category, $post_sub_category)
 		);
 		
 		//Creating the post

@@ -19,13 +19,13 @@ function LocalAppsSearchMetaboxAdminHead()
         subject: $('#widget-container-taxonomy-search #subject').val(),
         level: $('#widget-container-taxonomy-search #levels').val(),
         price: $('#widget-container-taxonomy-search #price').val(),
-        cat: $('#widget-container-taxonomy-search #cat').val()
+        post_type: $('#widget-container-taxonomy-search #post_type').val()
       };
       $.post(ajaxurl, data, function(response) {
         if ( response == 'fail' ) {
-          $('#app_results').text('<h2>An error occured. Please try again...</h2>');
+          $('#app_results').html('<h2>An error occured. Please try again...</h2>');
         } else {
-          $('#app_results').text(response);
+          $('#app_results').html(response);
         }
       });
     });
@@ -62,11 +62,16 @@ function AppsSearchMetaBox()
       <li class="taxon-field"><?php echo taxonomy_dropdown('price'); ?></li>
       <li class="search-button">
         <button type="button" id="local-apps-search" class="button-primary" name="local-apps-search">search</button>
-        <input type="hidden" id="cat" name="cat" value="<?php echo get_cat_ID( 'Apps' ); //Ensures other category results are omitted from search ?>">
+        <input type="hidden" id="post_type" name="post_type" value="ipad-app">
       </li>
     </ul>
   </div>
-  <div id="app_results"></div>
+  <div id="all_apps">
+    <div id="app_results"></div>
+    <div id="slected_apps"></div>
+  </div>
+  
+  <input id="ipad_meta_used_apps" name="ipad_meta_used_apps" value="">
 
 
 
@@ -75,7 +80,33 @@ function AppsSearchMetaBox()
 
 function MetaAjaxCallback()
 {
-  echo print_r($_POST);
+
+  $ipad_apps_query = new WP_Query(
+    array(
+      's' => $_POST['s'],
+      'post_type' => $_POST['post_type'],
+      'subject' => $_POST['subject'],
+      'levels' => $_POST['levels'],
+      'price' => $_POST['price'],
+    )
+  ); ?>
+
+  <script type="text/javascript">
+    jQuery(document).ready( function() {
+      toggle_select_apps('app_results', 'ipad_app', 'selected', 'remove_only', 'ipad_meta_used_apps');
+    });
+  </script>
+
+  <h3>Click to select the apps</h3>
+  <?php foreach ($ipad_apps_query->posts as $ipad_app) { ?>
+    <div class="ipad_app" id="<?php echo $ipad_app->ID ?>">
+        <?php echo get_the_post_thumbnail( $ipad_app->ID, 'thumb', array('class' => 'post_thumb')); ?>
+        <div class="title"><?php echo $ipad_app->post_title ?></div>
+    </div>
+  <?php }
+
+  // return print_r($posts);
+
   die();
 }
 

@@ -56,3 +56,40 @@ function searchAppstore() {
 		return false;
 	});
 };
+
+
+function toggle_select_apps(container_id, item_class, set_class, remove_rel_value, hidden_field) {
+	var selected_items = new Array();
+	hidden_field_value = jQuery(hidden_field).val();
+	if (hidden_field_value) {
+		selected_items = hidden_field_value.split(',');	
+	}
+	
+	
+
+
+	jQuery('#'+container_id + " > " + '.' + item_class).click(function(){
+
+		item_id = jQuery(this).attr('id');
+		item_location = selected_items.indexOf(item_id);
+
+		if (item_location === -1) {
+			selected_items.push(item_id);
+			jQuery('input[name="'+ hidden_field +'"]').val(selected_items.toString());
+			jQuery(this).addClass(set_class);
+		}
+		else {
+			selected_items.splice(item_location,1);
+			jQuery('input[name="'+ hidden_field +'"]').val(selected_items.toString());
+			if (jQuery(this).attr('rel') == remove_rel_value) {
+				jQuery(this).remove();
+			}
+			else {
+				jQuery(this).removeClass(set_class);
+			}
+
+		}
+
+		
+	});
+}

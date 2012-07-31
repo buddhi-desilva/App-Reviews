@@ -18,6 +18,9 @@ require_once('lib/ajax_functions.php');
 require_once('lib/post_functions.php');
 require_once('lib/taxonomy_dropdown.php');
 
+//Custom post type archives in the menu
+require_once('lib/custom-post-type-archive-menu-links.php');
+
 
 // Create the necessary taxonomies
 add_action( 'init', 'build_taxonomies', 10 );
@@ -35,6 +38,17 @@ add_action( 'init', 'ipadideas_ipad_apps', 20 );
 // Add lesson ideas post type
 require_once('lib/post_type_lesson_ideas.php');
 add_action( 'init', 'ipadideas_lesson_ideas', 20 );
+
+
+function iPadIdeasSearchFilter($query) {
+  $post_type = $_GET['type'];
+  if ($post_type) {
+    $query->set('post_type', $post_type);
+  }
+  return $query;
+};
+add_filter('pre_get_posts','iPadIdeasSearchFilter');
+
 
 
 //Hook the metabox save function

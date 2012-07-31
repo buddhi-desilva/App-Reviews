@@ -143,3 +143,56 @@
 #widget-container-taxonomy-search li .dd-container ul.dd-options li a.dd-option {
   padding:1px 0; 
 }
+
+
+#app_results {
+  overflow: hidden;
+  display: block;
+  width: 100%;
+}
+
+#app_results .selected {
+  border: 2px solid #999999 !important;
+  background: #FFFFFF !important;
+}
+
+#app_results .ipad_app {
+  padding: 5px;
+  background: #EFEFEF;
+  border: 2px solid #DDDDDD;
+  width: 160px;
+  height: 60px;
+  margin:10px;
+  display: block;
+  float: left;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -khtml-border-radius: 10px;
+  cursor: pointer;
+}
+
+#app_results .ipad_app a {
+  text-decoration: none;
+  color: #000000;
+  border: none;
+}
+
+#app_results .ipad_app img {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -khtml-border-radius: 10px;
+  width:60px;
+  height:60px;
+  margin-right: 5px;
+  float:left;
+}
+
+#app_results .ipad_app div.title {
+  display: block;
+  font-size: 12px;
+  width: 90px;
+  height: 60px;
+  float: left;
+}
