@@ -1,6 +1,5 @@
 <?php
-require_once('lesson_ideas_metaboxes.php');
-
+require_once('metaboxes_lesson_idea.php');
 
 function ipadideas_lesson_ideas() {
   //Options for lesson plans post type
@@ -41,12 +40,11 @@ function ipadideas_lesson_ideas() {
 }
 
 
-function add_lesson_ideas_metaboxes() {
-  wp_enqueue_style('ipad_ieas_meta_css', WP_PLUGIN_URL."/".PLUGIN_BASE_DIRECTORY . '/css/meta.css');
-  
+function add_lesson_ideas_metaboxes() {  
+  add_meta_box('ipad_lesson_apps_used', 'Apps used', 'ipad_lesson_apps_used', 'lesson-idea', 'normal', 'default');
   add_meta_box('ipad_lesson_objectives', 'Lesson objectives', 'ipad_lesson_objectives', 'lesson-idea', 'normal', 'default');
   add_meta_box('ipad_lesson_procedure', 'Lesson procedure', 'ipad_lesson_procedure', 'lesson-idea', 'normal', 'default');
-  add_meta_box('ipadideas_meta_field_contributors', 'Lesson contributors', 'ipadideas_meta_field_contributors', 'lesson-idea', 'normal', 'default');
+  add_meta_box('ipad_lesson_contributors', 'Lesson contributors', 'ipad_lesson_contributors', 'lesson-idea', 'normal', 'default');
 
   add_meta_box('authordiv', __('Author'), 'post_author_meta_box', 'lesson-idea', 'normal');
 }

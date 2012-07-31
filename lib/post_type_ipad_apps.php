@@ -1,4 +1,6 @@
 <?php
+require_once('metaboxes_ipad_app.php');
+
 function ipadideas_ipad_apps() {
   //Options for lesson plans post type
   $labels = array(
@@ -29,8 +31,8 @@ function ipadideas_ipad_apps() {
     'has_archive' => true, 
     'hierarchical' => false,
     'menu_position' => 5,
-    'register_meta_box_cb' => 'add_lesson_ideas_metaboxes',
-    'supports' => array( 'title', 'editor', 'author', 'thumbnail')
+    'register_meta_box_cb' => 'add_ipad_apps_metaboxes',
+    'supports' => array( 'title', 'thumbnail')
   );
   register_post_type('ipad-app',$args);
 
@@ -38,4 +40,14 @@ function ipadideas_ipad_apps() {
   register_taxonomy_for_object_type('levels', 'ipad-app');
   register_taxonomy_for_object_type('price', 'ipad-app');
 }
+
+function add_ipad_apps_metaboxes() {  
+  add_meta_box('ipad_apps_about_this_app', 'About this app', 'ipad_apps_about_this_app', 'ipad-app', 'normal', 'default');
+  add_meta_box('ipad_apps_possible_uses', 'Possible uses', 'ipad_apps_possible_uses', 'ipad-app', 'normal', 'default');
+  add_meta_box('ipad_apps_recommended_by', 'Recommended by', 'ipad_apps_recommended_by', 'ipad-app', 'normal', 'default');
+
+  add_meta_box('authordiv', __('Author'), 'post_author_meta_box', 'ipad-app', 'normal');
+}
+
+
 ?>

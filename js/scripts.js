@@ -60,15 +60,14 @@ function searchAppstore() {
 
 function toggle_select_apps(container_id, item_class, set_class, remove_rel_value, hidden_field) {
 	var selected_items = new Array();
-	hidden_field_value = jQuery(hidden_field).val();
+	hidden_field_value = jQuery('input[name="'+ hidden_field +'"]').val();
 	if (hidden_field_value) {
-		selected_items = hidden_field_value.split(',');	
+		selected_items = hidden_field_value.split(',');
 	}
-	
-	
-
 
 	jQuery('#'+container_id + " > " + '.' + item_class).click(function(){
+
+		// alert(selected_items);
 
 		item_id = jQuery(this).attr('id');
 		item_location = selected_items.indexOf(item_id);

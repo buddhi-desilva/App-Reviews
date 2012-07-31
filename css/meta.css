@@ -196,3 +196,43 @@
   height: 60px;
   float: left;
 }
+
+
+#slected_apps {
+  overflow: hidden;
+  display: block;
+  margin:10px 0 0 0;
+  padding:0;
+  width: 100%;
+}
+
+#slected_apps h3 {
+  margin-bottom:5px;
+}
+
+#slected_apps .ipad_app_selected {
+  background: #b8cb62;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -khtml-border-radius: 5px;
+  margin: 5px;
+  padding: 5px 10px;
+  overflow: hidden;
+  display: block;
+  float: left;
+  cursor:pointer;
+  line-height: 15px;
+}
+
+#slected_apps .ipad_app_selected:after {
+  content: 'x';
+  margin-left: 5px;
+  padding: 2px 4px;
+  background: #000000;
+  color: #CCCCCC;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -khtml-border-radius: 5px;
+}

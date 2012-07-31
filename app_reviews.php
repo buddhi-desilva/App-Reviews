@@ -3,7 +3,7 @@
 Plugin Name: Apple Appstore Reviews
 Plugin URI: http://bespokecoding.co
 Description: Grabs Apple appstore apps and inset into your blog as a post.
-Version:2.0a
+Version:2.1a
 Author: Buddhi deSilva
 Author URI: http://bespokecoding.co
 License: GPL2
@@ -30,6 +30,7 @@ function build_taxonomies() { // Build basic taxonomies
   register_taxonomy( 'price', null, array( 'hierarchical' => true, 'label' => 'Price', 'query_var' => true, 'rewrite' => true, 'show_ui' => false ) );
 }
 
+wp_enqueue_style('ipad_ieas_meta_css', WP_PLUGIN_URL."/".PLUGIN_BASE_DIRECTORY . '/css/meta.css');
 
 // Add lesson iPad apps post type
 require_once('lib/post_type_ipad_apps.php');
