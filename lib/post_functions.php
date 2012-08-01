@@ -21,27 +21,27 @@ function newAppPost($lookup_url) {
 		$post_id = wp_insert_post( $post, false );
 		
 		//Tagging based on categories
-		$tags = array();
+		// $tags = array();
 
-		foreach($result->genres as $genre) { // Create tags from Genre
-			array_push($tags, $genre);
-		}
+		// foreach($result->genres as $genre) { // Create tags from Genre
+		// 	array_push($tags, $genre);
+		// }
 
-		if ($result->price == 0.00) { // Create free or paid tags
-			array_push($tags, "Free");
+		// if ($result->price == 0.00) { // Create free or paid tags
+		// 	array_push($tags, "Free");
 
-			//Add price as a custom field
-			add_post_meta($post_id, 'Price', 'Free', true);
+		// 	//Add price as a custom field
+		// 	add_post_meta($post_id, 'Price', 'Free', true);
 
-		}
-		else {
-			array_push($tags, "Paid");
+		// }
+		// else {
+		// 	array_push($tags, "Paid");
 
-			//Add price as a custom field
-			add_post_meta($post_id, 'Price', $result->currency . $result->price, true);
-		}
+		// 	//Add price as a custom field
+		// 	add_post_meta($post_id, 'Price', $result->currency . $result->price, true);
+		// }
 
-		wp_set_post_tags($post_id, $tags, false); // Set post tags
+		// wp_set_post_tags($post_id, $tags, false); // Set post tags
 
 
 
@@ -70,8 +70,6 @@ function newAppPost($lookup_url) {
 		wp_set_object_terms($post_id, $price_name, 'price', false);
 		
 		
-
-
 		//Attachement inserting code goes here
 		if ($result->artworkUrl60) {
 			$featured_image_id = insert_image_from_url($result->artworkUrl60, $post_id);
@@ -80,24 +78,24 @@ function newAppPost($lookup_url) {
 			}
 		}
 		
-		if (($app_screenshots = $result->screenshotUrls) || ($app_screenshots = $result->ipadScreenshotUrls) || ($app_screenshots = $result->iphoneScreenshotUrls)) {
-			$gallery_ids = array();
-			foreach($app_screenshots as $screenshotURL) {
-				$gallery_image_id = insert_image_from_url($screenshotURL, $post_id);
-			}	
-		}
+		// if (($app_screenshots = $result->screenshotUrls) || ($app_screenshots = $result->ipadScreenshotUrls) || ($app_screenshots = $result->iphoneScreenshotUrls)) {
+		// 	$gallery_ids = array();
+		// 	foreach($app_screenshots as $screenshotURL) {
+		// 		$gallery_image_id = insert_image_from_url($screenshotURL, $post_id);
+		// 	}	
+		// }
 		
 		//insert gallery into content
-		$post_content = '<img src="'. wp_get_attachment_thumb_url($featured_image_id) .'" alt="'. $result->trackName .'" class="post_thumb" />';
-		$post_content .= $result->description;
-		if ($app_screenshots) {
-			$post_content .= '<!--more-->';
-			$post_content .= '<hr/>[gallery size="large" exclude="'. $featured_image_id .'"]';
-		}
-		$post_update = array(
-			'post_content' => $post_content,
-			'ID' => $post_id);
-		wp_update_post($post_update);
+		// $post_content = '<img src="'. wp_get_attachment_thumb_url($featured_image_id) .'" alt="'. $result->trackName .'" class="post_thumb" />';
+		// $post_content .= $result->description;
+		// if ($app_screenshots) {
+		// 	$post_content .= '<!--more-->';
+		// 	$post_content .= '<hr/>[gallery size="large" exclude="'. $featured_image_id .'"]';
+		// }
+		// $post_update = array(
+		// 	'post_content' => $post_content,
+		// 	'ID' => $post_id);
+		// wp_update_post($post_update);
 		
 		
 		//Add itunes store url as a custom field
@@ -186,34 +184,34 @@ function app_category($cat_name = NULL, $parent_cat_id) {
 	}
 }
 
-function find_parent_cat() {
-  // Set the required categories
-  $main_cat = 'Resources';
-  $apps_cat = 'Education apps';  
+// function find_parent_cat() {
+//   // Set the required categories
+//   $main_cat = 'Resources';
+//   $apps_cat = 'Education apps';  
 
-  if (get_cat_ID($main_cat) == 0) {
-    $main_cat_id = wp_create_category($main_cat);
-  }
+//   if (get_cat_ID($main_cat) == 0) {
+//     $main_cat_id = wp_create_category($main_cat);
+//   }
 
-  if (get_cat_ID($apps_cat) == 0) {
-    $apps_cat_id = wp_create_category($apps_cat);
-  }
+//   if (get_cat_ID($apps_cat) == 0) {
+//     $apps_cat_id = wp_create_category($apps_cat);
+//   }
 
-  $main_cat_id = get_cat_ID($main_cat);
-  $apps_cat_id = get_cat_ID($apps_cat);
+//   $main_cat_id = get_cat_ID($main_cat);
+//   $apps_cat_id = get_cat_ID($apps_cat);
 
 
-  //Check if the Apps category is under resources and if not, moves it under resources
-  $categories = get_categories(array('include' => $apps_cat_id, 'exclude' => $main_cat_id, 'hide_empty' => 0 ));
-  foreach($categories as $category) {
-    if (!$category->category_parent || !($category->category_parent == $main_cat_id)) {
-      wp_update_term($category->term_id, 'category', array('parent' => $main_cat_id));
-    }
-  }
+//   //Check if the Apps category is under resources and if not, moves it under resources
+//   $categories = get_categories(array('include' => $apps_cat_id, 'exclude' => $main_cat_id, 'hide_empty' => 0 ));
+//   foreach($categories as $category) {
+//     if (!$category->category_parent || !($category->category_parent == $main_cat_id)) {
+//       wp_update_term($category->term_id, 'category', array('parent' => $main_cat_id));
+//     }
+//   }
   
 
-  return $apps_cat_id;
-}
+//   return $apps_cat_id;
+// }
 
 
 ?>

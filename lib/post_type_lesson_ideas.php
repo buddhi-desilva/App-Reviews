@@ -41,7 +41,7 @@ function ipadideas_lesson_ideas() {
 
 
 function add_lesson_ideas_metaboxes() {  
-  add_meta_box('ipad_lesson_apps_used', 'Apps used', 'ipad_lesson_apps_used', 'lesson-idea', 'normal', 'default');
+  add_meta_box('ipad_lesson_apps_used', 'Apps used', 'ipad_meta_apps_used', 'lesson-idea', 'normal', 'default');
   add_meta_box('ipad_lesson_objectives', 'Lesson objectives', 'ipad_lesson_objectives', 'lesson-idea', 'normal', 'default');
   add_meta_box('ipad_lesson_procedure', 'Lesson procedure', 'ipad_lesson_procedure', 'lesson-idea', 'normal', 'default');
   add_meta_box('ipad_lesson_contributors', 'Lesson contributors', 'ipad_lesson_contributors', 'lesson-idea', 'normal', 'default');

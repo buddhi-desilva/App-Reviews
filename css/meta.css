@@ -162,7 +162,7 @@
   border: 2px solid #DDDDDD;
   width: 160px;
   height: 60px;
-  margin:10px;
+  margin:5px;
   display: block;
   float: left;
   -moz-border-radius: 10px;
@@ -194,6 +194,7 @@
   font-size: 12px;
   width: 90px;
   height: 60px;
+  overflow: hidden;
   float: left;
 }
 

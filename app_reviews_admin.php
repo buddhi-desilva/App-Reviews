@@ -15,11 +15,11 @@ function app_reviews_admin_register_head() { ?>
 add_action( 'admin_menu', 'app_reviews_menu' );
 //
 function app_reviews_menu() {
-	add_menu_page( 'App Reviews Options', 'App Reviews', 'manage_options', 'app_reviews', 'app_reviews_admin_options');
+	add_menu_page( 'App Reviews Options', 'App Reviews', 'edit_pages', 'app_reviews', 'app_reviews_admin_options');
 }
 
 function app_reviews_admin_options() {
-	if ( !current_user_can( 'manage_options' ) )  {
+	if ( !current_user_can( 'edit_pages' ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
 	require_once('lib/app_reviews_admin_options.php');
