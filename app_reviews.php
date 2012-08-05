@@ -25,9 +25,9 @@ require_once('lib/custom-post-type-archive-menu-links.php');
 // Create the necessary taxonomies
 add_action( 'init', 'build_taxonomies', 10 );
 function build_taxonomies() { // Build basic taxonomies
-  register_taxonomy( 'subject', null, array( 'hierarchical' => true, 'label' => 'Subject', 'query_var' => true, 'rewrite' => true ) );
-  register_taxonomy( 'levels', null, array( 'hierarchical' => true, 'label' => 'Levels', 'query_var' => true, 'rewrite' => true ) );
-  register_taxonomy( 'price', null, array( 'hierarchical' => true, 'label' => 'Price', 'query_var' => true, 'rewrite' => true, 'show_ui' => false ) );
+  register_taxonomy( 'subject', null, array( 'hierarchical' => false, 'label' => 'Subject', 'query_var' => true, 'rewrite' => true ) );
+  register_taxonomy( 'levels', null, array( 'hierarchical' => false, 'label' => 'Levels', 'query_var' => true, 'rewrite' => true ) );
+  register_taxonomy( 'price', null, array( 'hierarchical' => false, 'label' => 'Price', 'query_var' => true, 'rewrite' => true, 'show_ui' => false ) );
 }
 
 wp_enqueue_style('ipad_ieas_meta_css', WP_PLUGIN_URL."/".PLUGIN_BASE_DIRECTORY . '/css/meta.css');
@@ -44,6 +44,10 @@ add_action( 'init', 'ipadideas_lesson_ideas', 20 );
 require_once('lib/post_type_success_stories.php');
 add_action( 'init', 'ipadideas_success_stories', 20 );
 
+// Add image uploading to links
+require_once('lib/metaboxes_links.php');
+// Remove the wordpress built in advanced metabox and add the advanced links section with image uploading
+add_action( 'admin_menu' , 'add_remove_links_advanced_metabox', 20);
 
 
 //Hook the metabox save function

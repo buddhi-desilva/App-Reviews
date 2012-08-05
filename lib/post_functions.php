@@ -27,19 +27,19 @@ function newAppPost($lookup_url) {
 		// 	array_push($tags, $genre);
 		// }
 
-		// if ($result->price == 0.00) { // Create free or paid tags
-		// 	array_push($tags, "Free");
+		if ($result->price == 0.00) { // Create free or paid tags
+			array_push($tags, "Free");
 
-		// 	//Add price as a custom field
-		// 	add_post_meta($post_id, 'Price', 'Free', true);
+			//Add price as a custom field
+			add_post_meta($post_id, 'app_price', 'Free', true);
 
-		// }
-		// else {
-		// 	array_push($tags, "Paid");
+		}
+		else {
+			array_push($tags, "Paid");
 
-		// 	//Add price as a custom field
-		// 	add_post_meta($post_id, 'Price', $result->currency . $result->price, true);
-		// }
+			//Add price as a custom field
+			add_post_meta($post_id, 'app_price', $result->currency . $result->price, true);
+		}
 
 		// wp_set_post_tags($post_id, $tags, false); // Set post tags
 
