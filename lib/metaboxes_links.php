@@ -35,12 +35,8 @@ function link_advanced_meta_box_extended($link) {
   //Sends the code to text field
   window.send_to_editor = function(text){
      imgurl = jQuery(text).attr('src');
-     alert(text);
-
      jQuery('#link_image_thumb').replaceWith(text);
-     
      jQuery('#link_image').val(imgurl);
-
      tb_remove();
     }
 
@@ -53,7 +49,7 @@ function link_advanced_meta_box_extended($link) {
     <th scope="row"><input id="upload_image_button" value="Select or upload image" type="button" /></label></th>
     <td>
         <input type="hidden" name="link_image" class="code" id="link_image" value="<?php echo ( isset( $link->link_image ) ? esc_attr($link->link_image) : ''); ?>" />
-        <?php echo ( isset( $link->link_image ) ? '<img src="' . $link->link_image . '" id="link_image_thumb" />' : ''); ?>
+        <?php echo ( isset( $link->link_image ) ? '<img alt="Image updated" src="' . $link->link_image . '" id="link_image_thumb" />' : ''); ?>
     </td>
   </tr>
   <tr>
