@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Apple Appstore Reviews
-Plugin URI: http://bespokecoding.co
+Plugin URI: http://webjuice.co
 Description: Grabs Apple appstore apps and inset into your blog as a post.
-Version:2.2a
+Version:2.5b
 Author: Buddhi deSilva
-Author URI: http://bespokecoding.co
+Author URI: http://webjuice.co
 License: GPL2
 */
 
@@ -25,8 +25,8 @@ require_once('lib/custom-post-type-archive-menu-links.php');
 // Create the necessary taxonomies
 add_action( 'init', 'build_taxonomies', 10 );
 function build_taxonomies() { // Build basic taxonomies
-  register_taxonomy( 'subject', null, array( 'hierarchical' => false, 'label' => 'Subject', 'query_var' => true, 'rewrite' => true ) );
-  register_taxonomy( 'levels', null, array( 'hierarchical' => false, 'label' => 'Levels', 'query_var' => true, 'rewrite' => true ) );
+  register_taxonomy( 'subject', null, array( 'hierarchical' => true, 'label' => 'Subject', 'query_var' => true, 'rewrite' => true ) );
+  register_taxonomy( 'levels', null, array( 'hierarchical' => true, 'label' => 'Levels', 'query_var' => true, 'rewrite' => true ) );
   register_taxonomy( 'price', null, array( 'hierarchical' => false, 'label' => 'Price', 'query_var' => true, 'rewrite' => true, 'show_ui' => false ) );
 }
 

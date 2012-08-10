@@ -21,7 +21,7 @@ function newAppPost($lookup_url) {
 		$post_id = wp_insert_post( $post, false );
 		
 		//Tagging based on categories
-		// $tags = array();
+		$tags = array();
 
 		// foreach($result->genres as $genre) { // Create tags from Genre
 		// 	array_push($tags, $genre);

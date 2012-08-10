@@ -1,9 +1,9 @@
 <?php 
-function taxonomy_dropdown($taxonomy_name) {
+function taxonomy_dropdown($taxonomy_name, $label_name = '- select -') {
   $terms = get_terms($taxonomy_name);
   
   $select_tag = '<select class="postform" id="'. $taxonomy_name .'" name="' . $taxonomy_name . '">';
-  $select_tag .= '<option value="">- select -</option>';
+  $select_tag .= '<option value="">' . $label_name . '</option>';
 
   if (count($terms) > 0) {
     foreach ($terms as $term) {
