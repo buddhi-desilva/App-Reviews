@@ -10,8 +10,8 @@
 /* App search form styles
 -----------------------------*/
 #widget-container-taxonomy-search {
-  width:98%;
-  padding:1%;
+  width:100%;
+  padding:0;
   margin: 0;
   display: block;
   clear: both;

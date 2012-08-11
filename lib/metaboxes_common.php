@@ -39,11 +39,11 @@ function ipad_meta_apps_used($post) { ?>
         <input type="text" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search', 'twentyeleven' ); ?>" />
       </li>
       <li class="label">Subject</li>
-      <li class="taxon-field"><?php echo taxonomy_dropdown('subject', ' any '); ?></li>
+      <li class="taxon-field"><?php echo taxonomy_dropdown('subject', ' all '); ?></li>
       <li class="label">Levels</li>
-      <li class="taxon-field"><?php echo taxonomy_dropdown('levels', ' both '); ?></li>
+      <li class="taxon-field"><?php echo taxonomy_dropdown('levels', ' all '); ?></li>
       <li class="label">Price</li>
-      <li class="taxon-field"><?php echo taxonomy_dropdown('price', ' any '); ?></li>
+      <li class="taxon-field"><?php echo taxonomy_dropdown('price', ' all '); ?></li>
       <li class="search-button">
         <button type="button" id="local-apps-search" class="button-primary" name="local-apps-search">search</button>
         <input type="hidden" id="post_type" name="post_type" value="ipad-app">
