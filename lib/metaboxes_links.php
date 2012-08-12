@@ -8,10 +8,6 @@ function add_remove_links_advanced_metabox() {
 
 
 function thickbox_scripts() {
-  // wp_enqueue_script('media-upload');
-  // wp_enqueue_script('thickbox');
-  // wp_register_script('my-upload', WP_PLUGIN_URL.'/scripts.js', array('jquery','media-upload','thickbox'));
-  // wp_enqueue_script('my-upload');
   add_thickbox();
 }
 

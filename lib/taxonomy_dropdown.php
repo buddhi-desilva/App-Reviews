@@ -7,11 +7,11 @@ function taxonomy_dropdown($taxonomy_name, $label_name = '- select -') {
 
   if (count($terms) > 0) {
     foreach ($terms as $term) {
-      $select_tag .= '<option valeu="' . $term->slug . '">' . $term->name . '</option>';
+      $select_tag .= '<option value="' . $term->slug . '">' . $term->name . '</option>';
     }
   }
   else {
-    $select_tag .= '<option valeu="">-</option>';
+    $select_tag .= '<option value="">-</option>';
   }
   $select_tag .= '</select>';
   return $select_tag;
