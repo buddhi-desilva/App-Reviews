@@ -1,12 +1,12 @@
 <?php
 require_once('metaboxes_common.php');
 
-function ipad_success_stories_details($post) {
+function ipad_case_studies_details($post) {
   wp_editor(get_post_meta($post->ID, 'ipad_meta_abstract', true), 'ipad_meta_abstract', array('dfw' => true, 'textarea_rows' => 20, 'tabindex' => 10) );
 }
 
 
-function ipad_success_stories_more_info($post) { ?>
+function ipad_case_studies_more_info($post) { ?>
   <label for="ipad_meta_info_school"><?php _e('School') ?></label>
   <input class="p100" name="ipad_meta_info_school" tabindex="25" id="ipad_meta_info_school" value="<?php echo get_post_meta($post->ID, 'ipad_meta_info_school', true)?>" />
   

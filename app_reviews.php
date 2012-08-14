@@ -40,9 +40,9 @@ add_action( 'init', 'ipadideas_ipad_apps', 20 );
 require_once('lib/post_type_lesson_ideas.php');
 add_action( 'init', 'ipadideas_lesson_ideas', 20 );
 
-// Add success stories post type
-require_once('lib/post_type_success_stories.php');
-add_action( 'init', 'ipadideas_success_stories', 20 );
+// Add success studies post type
+require_once('lib/post_type_case_studies.php');
+add_action( 'init', 'ipadideas_case_studies', 20 );
 
 // Add image uploading to links
 require_once('lib/metaboxes_links.php');
