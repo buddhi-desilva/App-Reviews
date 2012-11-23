@@ -44,6 +44,11 @@ add_action( 'init', 'ipadideas_lesson_ideas', 20 );
 require_once('lib/post_type_case_studies.php');
 add_action( 'init', 'ipadideas_case_studies', 20 );
 
+// Add success studies post type
+require_once('lib/post_type_useful_links.php');
+add_action( 'init', 'ipadideas_useful_links', 25 );
+
+
 // Add image uploading to links
 require_once('lib/metaboxes_links.php');
 // Remove the wordpress built in advanced metabox and add the advanced links section with image uploading
@@ -58,10 +63,10 @@ function ipad_ideas_metabox_save( $post_id ) { // saving the post meta box field
   if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
   // if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
   if( !current_user_can( 'edit_post' ) ) return;
-  
+
   $ipad_ideas_metabox_field_keys = preg_grep( '!^ipad_meta_!', array_keys( $_POST ));
   foreach ($ipad_ideas_metabox_field_keys as $key) {
-    if( isset( $_POST[$key] ) )  
+    if( isset( $_POST[$key] ) )
       update_post_meta( $post_id, $key, $_POST[$key]);
   }
 }

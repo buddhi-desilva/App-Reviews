@@ -5,11 +5,11 @@
 </script>	
 	
 <div class="wrap">
-	<div class="icon32" id="icon-options-app-reviews"><br/></div>
+	<div class="icon32" id="admin-icon-app-reviews"><br/></div>
 <h2>Select &amp; Insert from appstore</h2>
 
 <form method='POST' name='appstore_search_form' id='appstore_search_form' action="">
-	<table class="form-table" id="appstore_search_form_table">
+	<table class="form-table" id="admin-appstore_search_form_table">
 	<tbody>
 	<tr valign="top">
 		<th scope="row">
@@ -43,7 +43,7 @@
 	</tbody></table>
 </form>
 
-<div id="apps_list" class="results">
+<div id="admin-apps_list" class="results">
 </div>
 
 

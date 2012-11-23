@@ -9,7 +9,7 @@
 
 /* App search form styles
 -----------------------------*/
-#widget-container-taxonomy-search {
+#admin-widget-container-taxonomy-search {
   width:100%;
   padding:0;
   margin: 0;
@@ -18,11 +18,11 @@
 }
 
 
-#widget-container-taxonomy-search {
+#admin-widget-container-taxonomy-search {
   margin:0 auto 0.8em auto;
 }
 
-#widget-container-taxonomy-search ul {
+#admin-widget-container-taxonomy-search ul {
   list-style: none;
   display: table;
   margin: 0;
@@ -30,19 +30,19 @@
   width: 100%;
 }
 
-#widget-container-taxonomy-search li {
+#admin-widget-container-taxonomy-search li {
   display: table-cell;
   padding:0 2% 0 0;
   vertical-align:bottom;
   text-align: left;
 }
 
-#widget-container-taxonomy-search li:last-child {
+#admin-widget-container-taxonomy-search li:last-child {
   padding-right:0;
 }
 
 
-#widget-container-taxonomy-search li.label {
+#admin-widget-container-taxonomy-search li.label {
   color: #000000;
   line-height:25px;
   text-align: right;
@@ -50,23 +50,23 @@
   width:8%;
 }
 
-#widget-container-taxonomy-search li.taxon-field {
+#admin-widget-container-taxonomy-search li.taxon-field {
   text-align: left;
   width:20%;
 }
 
-#widget-container-taxonomy-search li.search-button {
+#admin-widget-container-taxonomy-search li.search-button {
   width: 10%;
   vertical-align: middle;
   text-align: right;
 
 }
-#widget-container-taxonomy-search li.search {
+#admin-widget-container-taxonomy-search li.search {
   width: 110px;
   background:transparent;
 }
 
-#widget-container-taxonomy-search li.search input {
+#admin-widget-container-taxonomy-search li.search input {
   background: #FFFFFF;
   width: 120px;
   margin: 0;
@@ -78,7 +78,7 @@
   font-family: Helvetica, Arial, Sans-Serif;
 }
 
-#widget-container-taxonomy-search select.postform {
+#admin-widget-container-taxonomy-search select.postform {
   width:96%;
   background-color: #FFFFFF;
   border-color: #DFDFDF;
@@ -94,17 +94,17 @@
   border:1px solid #777777;
 }
 
-#widget-container-taxonomy-search li.submit-button {
+#admin-widget-container-taxonomy-search li.submit-button {
   width:10%;
   text-align: right;
 }
 
-#widget-container-taxonomy-search li .dd-container {
+#admin-widget-container-taxonomy-search li .dd-container {
   display: inline-block;
 }
 
-#widget-container-taxonomy-search li .dd-container .dd-select,
-#widget-container-taxonomy-search li .dd-container ul.dd-options {
+#admin-widget-container-taxonomy-search li .dd-container .dd-select,
+#admin-widget-container-taxonomy-search li .dd-container ul.dd-options {
   -webkit-border-radius: 8px; 
   -moz-border-radius: 8px;
   border-radius: 8px;
@@ -113,34 +113,34 @@
   text-align: center;
 }
 
-#widget-container-taxonomy-search li .dd-container label {
+#admin-widget-container-taxonomy-search li .dd-container label {
   font-size:12px;
   font-weight: 400;
 }
 
-#widget-container-taxonomy-search li .dd-container label a:hover {text-decoration: none;}
+#admin-widget-container-taxonomy-search li .dd-container label a:hover {text-decoration: none;}
 
-#widget-container-taxonomy-search li .dd-container .dd-selected {
+#admin-widget-container-taxonomy-search li .dd-container .dd-selected {
   padding:2px 2px 2px 5px;
   overflow: hidden;
   white-space: pre;
   width: 80px;
 }
 
-#widget-container-taxonomy-search li .dd-container ul.dd-options {
+#admin-widget-container-taxonomy-search li .dd-container ul.dd-options {
   width: 200px !important;
   margin: 0;
   padding: 0;
 }
 
-#widget-container-taxonomy-search li .dd-container ul.dd-options li {
+#admin-widget-container-taxonomy-search li .dd-container ul.dd-options li {
   display: block;
   width: 96% !important;
   padding: 0 2%;
   margin: 0;
 }
 
-#widget-container-taxonomy-search li .dd-container ul.dd-options li a.dd-option {
+#admin-widget-container-taxonomy-search li .dd-container ul.dd-options li a.dd-option {
   padding:1px 0; 
 }
 

@@ -9,11 +9,11 @@ function LocalAppsSearchMetaboxAdminHead() { ?>
     $('#local-apps-search').click( function () {
       var data = {
         action: 'local_appsearch',
-        s: $('#widget-container-taxonomy-search #s').val(),
-        subject: $('#widget-container-taxonomy-search #subject').val(),
-        level: $('#widget-container-taxonomy-search #levels').val(),
-        price: $('#widget-container-taxonomy-search #price').val(),
-        post_type: $('#widget-container-taxonomy-search #post_type').val(),
+        s: $('#admin-widget-container-taxonomy-search #s').val(),
+        subject: $('#admin-widget-container-taxonomy-search #subject').val(),
+        level: $('#admin-widget-container-taxonomy-search #levels').val(),
+        price: $('#admin-widget-container-taxonomy-search #price').val(),
+        post_type: $('#admin-widget-container-taxonomy-search #post_type').val(),
         post_id: $('input#post_ID').val()
       };
       $.post(ajaxurl, data, function(response) {
@@ -33,7 +33,7 @@ function ipad_meta_apps_used($post) { ?>
 
   <input type="hidden" name="ipad_meta_apps_used" id="ipad_meta_apps_used" value="<?php echo get_post_meta($post->ID, 'ipad_meta_apps_used', true) // textarea_escaped ?>" />
 
-  <div id="widget-container-taxonomy-search">
+  <div id="admin-widget-container-taxonomy-search">
     <ul>
       <li class="search">
         <input type="text" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search', 'twentyeleven' ); ?>" />

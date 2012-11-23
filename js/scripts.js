@@ -48,7 +48,7 @@ function searchAppstore() {
 			
 		}).success(function(response) {
 					jQuery('#appstore_search_button').parent().removeClass('ajax_spinner_search_button');
-					jQuery('#apps_list').html(response);
+					jQuery('#admin-apps_list').html(response);
 				})
 			.error(function() { 
 					alert('Error.. Please try again!');
